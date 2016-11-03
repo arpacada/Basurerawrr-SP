@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/back1"
+    android:visibility="visible">
+
+    <Button
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_book"
+        android:id="@+id/addBook_Button"
+        android:onClick="addBook"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="79dp"
+        android:background="#00ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="43dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:id="@+id/cancel_add"
+        android:layout_gravity="center_horizontal"
+        android:onClick="cancelAdd"
+        android:background="#00ffffff"
+        android:layout_alignTop="@+id/addBook_Button"
+        android:layout_toEndOf="@+id/addBook_Button"
+        android:layout_marginStart="59dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_book_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/add_dialogue"
+        android:inputType="text"
+        android:visibility="visible"
+        android:hint="Add Book Title Here" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_dialogue"
+        android:layout_above="@+id/addBook_Button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:inputType="text"
+        android:hint="Add Dialogue Here" />
+
+</RelativeLayout>

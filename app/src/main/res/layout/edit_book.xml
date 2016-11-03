@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="@drawable/editbookback">
+
+
+
+    <EditText
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:id="@+id/editbook"
+
+        android:textAlignment="center"
+
+        android:inputType="text"
+        android:hint="Title Here" />
+
+
+
+    <EditText
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:id="@+id/editdialogue"
+
+        android:textAlignment="center"
+
+        android:inputType="text"
+        android:hint="Dialogue" />
+
+
+
+    <Button
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:text="@string/edit"
+
+        android:id="@+id/edit_title"
+
+        android:layout_gravity="center_horizontal"
+
+        android:background="#00ffffff" />
+
+
+
+    <Button
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:text="@string/cancel_edit"
+
+        android:id="@+id/cancel_button"
+
+        android:layout_gravity="center_horizontal"
+
+        android:textAlignment="center"
+
+        android:background="#00ffffff" />
+
+</LinearLayout>
