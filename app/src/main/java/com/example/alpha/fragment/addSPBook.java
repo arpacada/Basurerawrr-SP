@@ -110,7 +110,7 @@ public class addSPBook extends Activity implements AdapterView.OnItemSelectedLis
         public void onClick(View v) {
 
             dbHelper.addBook(editTextAddTitle.getText().toString(), editTextAddDialogue.getText().toString(), 4);
-
+            //TODO: PROPER ADDING BOOK
             //dbHelper.addBook(titleText,dialogueText,2);
 
 
