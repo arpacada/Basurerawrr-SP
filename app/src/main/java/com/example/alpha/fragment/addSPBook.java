@@ -109,8 +109,8 @@ public class addSPBook extends Activity implements AdapterView.OnItemSelectedLis
     private View.OnClickListener addBookBTNListener = new View.OnClickListener() {
         public void onClick(View v) {
 
-            dbHelper.addBook(editTextAddTitle.getText().toString(), editTextAddDialogue.getText().toString(), 4);
-            //TODO: PROPER ADDING BOOK
+            //dbHelper.addBook(editTextAddTitle.getText().toString(), editTextAddDialogue.getText().toString(), 4);
+            dbHelper.addBook(editTextAddTitle.getText().toString(), editTextAddDialogue.getText().toString(), 4, genre, editTextYear.getText().toString(), editNumOfCopies.getText().toString());
             //dbHelper.addBook(titleText,dialogueText,2);
 
 
