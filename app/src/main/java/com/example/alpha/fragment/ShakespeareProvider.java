@@ -29,7 +29,7 @@ public class ShakespeareProvider extends ContentProvider{
          sUriMatcher.addURI(ShakespeareContract.CONTENT_AUTHORITY, ShakespeareContract.PATH_SHAKESPEARE, 1);
 
         //integer code for a single row is 2.
-        sUriMatcher.addURI(ShakespeareContract.CONTENT_AUTHORITY, ShakespeareContract.PATH_SHAKESPEARE, 2);
+        sUriMatcher.addURI(ShakespeareContract.CONTENT_AUTHORITY, ShakespeareContract.PATH_SHAKESPEARE +"/#", 2);
          }
     // Implements ContentProvider.query()
     public Cursor query(
