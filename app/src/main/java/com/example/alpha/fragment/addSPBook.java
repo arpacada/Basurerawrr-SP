@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import com.example.alpha.fragment.ShakespeareContract.ShakespeareEntry;
 
 import java.util.ArrayList;
 
@@ -70,12 +71,17 @@ public class addSPBook extends Activity {
                 String selection = (String) parent.getItemAtPosition(position);
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(getString(R.string.genre_romance))) {
-                        genre = PetEntry.GENDER_MALE;
-                    } else if (selection.equals(getString(R.string.gender_female))) {
-                        genre = PetEntry.GENDER_FEMALE;
-                    } else if (selection.equals(getString(R.string.)))
-                    } else {
-                        genre = PetEntry.GENDER_UNKNOWN;
+                        genre = ShakespeareEntry.GENRE_ROMANCE;
+                    } else if (selection.equals(getString(R.string.genre_comedy))) {
+                        genre = ShakespeareEntry.GENRE_COMEDY;
+                    } else if (selection.equals(getString(R.string.genre_history))) {
+                        genre = ShakespeareEntry.GENRE_HISTORY;
+                    } else if (selection.equals(getString(R.string.genre_tragedy))) {
+                        genre = ShakespeareEntry.GENRE_TRAGEDY;
+                    } else if (selection.equals(getString(R.string.genre_others))) {
+                        genre = ShakespeareEntry.GENRE_OTHERS;
+                    }else {
+                        genre = ShakespeareEntry.GENRE_OTHERS;
                     }
                 }
             }

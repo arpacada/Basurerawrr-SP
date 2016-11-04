@@ -37,6 +37,12 @@ public final class ShakespeareContract {
         public static final String COLUMN_COPIES = "numofcopies";
         public static final String TABLE_NAME = "books";
 
+        public static final String GENRE_COMEDY = "Comedy";
+        public static final String GENRE_ROMANCE = "Romance";
+        public static final String GENRE_HISTORY = "History";
+        public static final String GENRE_TRAGEDY = "Tragedy";
+        public static final String GENRE_OTHERS= "Others";
+
 
         public static Uri buildGenreUri(long id){
             return ContentUris.withAppendedId(CONTENT_URI, id);}
