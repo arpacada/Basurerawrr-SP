@@ -43,6 +43,9 @@ public final class ShakespeareContract {
         public static final String GENRE_TRAGEDY = "Tragedy";
         public static final String GENRE_OTHERS= "Others";
 
+        public static final String DBNAME= "shakespeareDB";
+
+
 
         public static Uri buildGenreUri(long id){
             return ContentUris.withAppendedId(CONTENT_URI, id);}

@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-android.widget.AdapterView.OnItemSelectedListener
+import android.widget.AdapterView.OnItemSelectedListener;
 import com.example.alpha.fragment.ShakespeareContract.ShakespeareEntry;
 
 import java.util.ArrayList;
@@ -26,6 +26,9 @@ import java.util.ArrayList;
 public class addSPBook extends Activity implements AdapterView.OnItemSelectedListener {
     EditText editTextAddTitle;
     EditText editTextAddDialogue;
+
+    EditText editTextYear;
+    EditText editNumOfCopies;
 
     Button addBookBTN;
     Button cancelBTN;
@@ -42,18 +45,21 @@ public class addSPBook extends Activity implements AdapterView.OnItemSelectedLis
         editTextAddTitle = (EditText) findViewById(R.id.add_book_title);
         editTextAddDialogue = (EditText) findViewById(R.id.add_dialogue);
 
+        editTextYear = (EditText) findViewById(R.id.editText3);
+        editNumOfCopies = (EditText) findViewById(R.id.editText4);
+
         addBookBTN = (Button) findViewById(R.id.addBook_Button);
         cancelBTN = (Button) findViewById(R.id.cancel_add);
         genreSpinner = (Spinner) findViewById(R.id.spinner);
-        dbHelper = new ShakespeareDBHelper(this);
+        dbHelper = new ShakespeareDBHelper(this, ShakespeareEntry.DBNAME, 1);
 
         //generateUIandData();
         genreSpinner.setOnItemSelectedListener(this);
         addBookBTN.setOnClickListener(addBookBTNListener);
-        cancelBTN.setOnClickListener(new View.OnClickListener(){
+        cancelBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
-                Intent in = new Intent(getApplicationContext(),FragmentLayout.class);
+                Intent in = new Intent(getApplicationContext(), FragmentLayout.class);
                 in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(in);
             }
@@ -84,18 +90,22 @@ public class addSPBook extends Activity implements AdapterView.OnItemSelectedLis
                         genre = ShakespeareEntry.GENRE_TRAGEDY;
                     } else if (selection.equals(getString(R.string.genre_others))) {
                         genre = ShakespeareEntry.GENRE_OTHERS;
-                    }else {
+                    } else {
                         genre = ShakespeareEntry.GENRE_OTHERS;
                     }
                 }
             }
+
+            @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Another interface callback
             }
 
+        });
+
     }
 
-   
+
     private View.OnClickListener addBookBTNListener = new View.OnClickListener() {
         public void onClick(View v) {
 
@@ -112,8 +122,13 @@ public class addSPBook extends Activity implements AdapterView.OnItemSelectedLis
         }
     };
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
-
+    }
 }

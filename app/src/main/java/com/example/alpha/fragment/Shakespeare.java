@@ -1,16 +1,11 @@
 package com.example.alpha.fragment;
 
-
-
 /**
 
  * Created by Alpha on 10/16/2016.
 
  */
-
 public class Shakespeare {
-
-
 
     //    public static String[] TITLES = {"TITLE 1", "TITLE2"};
 
@@ -41,7 +36,7 @@ public class Shakespeare {
         this.Dialogue = vDialogue;
 
         this.image = image;
-
+;
     }*/
 
 
@@ -54,7 +49,11 @@ public class Shakespeare {
 
     private int image;
 
+    private String genre;
 
+    private String year;
+
+    private String numofcopies;
 
     public Shakespeare() {
 
@@ -73,6 +72,24 @@ public class Shakespeare {
         this.dialogue=dialogue;
 
         this.image=image;
+
+    }
+
+    public Shakespeare(int id, String title, String dialogue, int image, String genre, String year, String numofcopies){
+
+        this.id=id;
+
+        this.title=title;
+
+        this.dialogue=dialogue;
+
+        this.image=image;
+
+        this.genre=genre;
+
+        this.year=year;
+
+        this.numofcopies=numofcopies;
 
     }
 
@@ -108,6 +125,24 @@ public class Shakespeare {
 
     }
 
+    public void setGenre(String genre) {
+
+        this.genre = genre;
+
+    }
+
+    public void setYear(String year) {
+
+        this.year = year;
+
+    }
+
+    public void setNumofcopies(String numofcopies) {
+
+        this.numofcopies = numofcopies;
+
+    }
+
 
 
     public int getID() {
@@ -119,25 +154,27 @@ public class Shakespeare {
 
 
     public String getTitle() {
-
         return title;
-
     }
-
-
 
     public String getDialogue() {
-
         return dialogue;
-
     }
 
-
-
     public int getImage() {
-
         return image;
+    }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getNumofcopies() {
+        return numofcopies;
     }
 
 

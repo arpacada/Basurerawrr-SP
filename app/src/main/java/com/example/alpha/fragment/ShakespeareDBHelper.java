@@ -126,6 +126,30 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
     }
 
+    public void addBook(String titlePassed, String dialoguePassed, int imgPassed, String genrePassed, String yearPassed, String numofcopiesPassed) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(ShakespeareEntry.COLUMN_TITLE, titlePassed);
+
+        values.put(ShakespeareEntry.COLUMN_DIALOGUE, dialoguePassed); // Add the Dialogue
+
+        values.put(ShakespeareEntry.COLUMN_IMAGE, imgPassed); // Add the Image
+
+        values.put(ShakespeareEntry.COLUMN_GENRE, genrePassed); // Add the genre
+
+        values.put(ShakespeareEntry.COLUMN_YEAR, yearPassed); // Add the year
+
+        values.put(ShakespeareEntry.COLUMN_COPIES, numofcopiesPassed);
+
+        db.insert(TABLE_NAME, null, values); // Insert the row
+
+        db.close(); // Closing database connection
+
+    }
+
 
 
     // Get one book from the database
@@ -221,6 +245,9 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
         values.put(ShakespeareEntry.COLUMN_DIALOGUE, bookSample.getDialogue()); // Add the Dialogue
 
         values.put(ShakespeareEntry.COLUMN_IMAGE, bookSample.getImage()); // Add the Imagelues.put
+        values.put(ShakespeareEntry.COLUMN_GENRE, bookSample.getGenre()); // Add the Imagelues.put
+        values.put(ShakespeareEntry.COLUMN_YEAR, bookSample.getYear()); // Add the Imagelues.put
+        values.put(ShakespeareEntry.COLUMN_COPIES, bookSample.getNumofcopies()); // Add the Imagelues.put
 
         return db.update(TABLE_NAME,values,ShakespeareEntry.COLUMN_ID + "=?", new String[]{String.valueOf(bookSample.getID())});
     }
