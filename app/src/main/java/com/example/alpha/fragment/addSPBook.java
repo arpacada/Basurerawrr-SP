@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+android.widget.AdapterView.OnItemSelectedListener
 import com.example.alpha.fragment.ShakespeareContract.ShakespeareEntry;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 /**
  * Created by Mariz on 10/28/2016.
  */
-public class addSPBook extends Activity {
+public class addSPBook extends Activity implements AdapterView.OnItemSelectedListener {
     EditText editTextAddTitle;
     EditText editTextAddDialogue;
 
@@ -29,6 +31,7 @@ public class addSPBook extends Activity {
     Button cancelBTN;
     Spinner genreSpinner;
     ShakespeareDBHelper dbHelper;
+    String genre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class addSPBook extends Activity {
         dbHelper = new ShakespeareDBHelper(this);
 
         //generateUIandData();
+        genreSpinner.setOnItemSelectedListener(this);
         addBookBTN.setOnClickListener(addBookBTNListener);
         cancelBTN.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -84,6 +88,9 @@ public class addSPBook extends Activity {
                         genre = ShakespeareEntry.GENRE_OTHERS;
                     }
                 }
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
             }
 
     }
