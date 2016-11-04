@@ -125,6 +125,68 @@ public class ShakespeareProvider extends ContentProvider{
         if(values.containsKey(ShakespeareEntry.COLUMN_YEAR)) {
             Integer year = values.getAsInteger(ShakespeareEntry.COLUMN_YEAR);
         }
+        if(values.containsKey(ShakespeareEntry.COLUMN_GENRE)) {
+            String genre = values.getAsString(ShakespeareEntry.COLUMN_GENRE);
+        }
+        if(values.containsKey(ShakespeareEntry.COLUMN_COPIES)) {
+            Integer numofcopies = values.getAsInteger(ShakespeareEntry.COLUMN_COPIES);
+        }
+
+        if(values.size() == 0){
+            return 0;
+        }
+        db = dbHelper.getWritableDatabase();
+        int rowsUpdated = db.update(ShakespeareEntry.TABLE_NAME, values, selection, selectionArgs);
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        // Return the number of rows updated
+        return rowsUpdated;
+
+    }
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        // Get writeable database
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+        // Track the number of rows that were deleted
+        int rowsDeleted;
+
+        switch (sUriMatcher.match(uri)) {
+            case 1:
+
+                rowsDeleted = database.delete(ShakespeareEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            case 2:
+
+                selection = ShakespeareEntry._ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                rowsDeleted = database.delete(ShakespeareEntry.TABLE_NAME, selection, selectionArgs);
+                break;
+            default:
+                throw new IllegalArgumentException("Deletion is not supported for " + uri);
+        }
+
+
+        if (rowsDeleted != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsDeleted;
+    }
+
+    @Override
+    public String getType(Uri uri) {
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case 1:
+                return ShakespeareEntry.CONTENT_TYPE;
+            case 2:
+                return ShakespeareEntry.CONTENT_ITEM_TYPE;
+            default:
+                throw new IllegalStateException("Unknown URI " + uri + " with match " + match);
+        }
     }
 
 
