@@ -7,12 +7,17 @@
     <string name="feel_the_light">Feel the Light</string>
     <string name="home">Home</string>
     <string name="add_book">Add Book</string>
-<string name="cancel">cancel</string>
-<string name="add_title_here">Add Title Here</string>
-<string name="add_dialogue_here">Add Dialogue Here</string>
-<string name="title_here">Title Here</string>
-<string name="dialogue">Dialogue</string>
-<string name="edit">Edit</string>
-<string name="cancel_edit">Cancel</string>
-<string name="number_here">Number Here</string>
+    <string name="cancel">cancel</string>
+    <string name="add_title_here">Add Title Here</string>
+    <string name="add_dialogue_here">Add Dialogue Here</string>
+    <string name="title_here">Title Here</string>
+    <string name="dialogue">Dialogue</string>
+    <string name="edit">Edit</string>
+    <string name="cancel_edit">Cancel</string>
+    <string name="number_here">Number Here</string>
+    <string name = "genre_romance">Romance</string>
+    <string name = "genre_comedy">Comedy</string>
+    <string name = "genre_tragedy">Tragedy</string>
+    <string name = "genre_history">History</string>
+    <string name = "genre_others">Others</string>
 </resources>

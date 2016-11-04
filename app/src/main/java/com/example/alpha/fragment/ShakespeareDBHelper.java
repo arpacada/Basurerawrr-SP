@@ -10,7 +10,7 @@ package com.example.alpha.fragment;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
         import java.util.ArrayList;
-        import java.util.List;
+        import com.example.alpha.fragment.ShakespeareContract.ShakespeareEntry;
 
 public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
@@ -26,15 +26,22 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "books";
     // Shops Table Columns names
 
-    private static final String KEY_ID ="id";
+//    private static final String COLUMN_ID ="id";
+//
+//    private static final String COLUMN_TITLE ="title";
+//
+//    private static final String COLUMN_DIALOGUE = "dialogue";
+//
+//    private static final String COLUMN_IMAGE = "image";
+//
+//    private static final String COLUMN_GENRE = "genre";
+//
+//    private static final String COLUMN_YEAR = "year";
+//
+//    private static final String COLUMN_COPIES = "numofcopies";
 
-    private static final String KEY_TITLE ="title";
 
-    private static final String KEY_DIALOGUE = "dialogue";
-
-    private static final String KEY_IMAGE = "image";
-
-    public ShakespeareDBHelper(Context context) {
+    public ShakespeareDBHelper(Context context, String DATABASE_NAME, int DATABASE_VERSION) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION); // incremented database version from 2 to 3
     }
 
@@ -47,10 +54,9 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
         //SQL statement to create database.
 
         String CREATE_SP_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_TITLE + " TEXT,"
-
-                + KEY_DIALOGUE + " TEXT," + KEY_IMAGE + " INTEGER" + ")";
+                + ShakespeareEntry.COLUMN_ID + " INTEGER PRIMARY COLUMN AUTOINCREMENT," + ShakespeareEntry.COLUMN_TITLE + " TEXT,"
+                + ShakespeareEntry.COLUMN_DIALOGUE + " TEXT," + ShakespeareEntry.COLUMN_IMAGE + " INTEGER," + ShakespeareEntry.COLUMN_GENRE + " TEXT,"
+                + ShakespeareEntry.COLUMN_YEAR + " INTEGER," + ShakespeareEntry.COLUMN_COPIES + " INTEGER)";
 
 
 
@@ -68,8 +74,6 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 
-
-
         // Creating tables again
 
         onCreate(db);
@@ -86,11 +90,11 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_TITLE, spObject.getTitle()); // Add the Title
+        values.put(ShakespeareEntry.COLUMN_TITLE, spObject.getTitle()); // Add the Title
 
-        values.put(KEY_DIALOGUE, spObject.getDialogue()); // Add the Dialogue
+        values.put(ShakespeareEntry.COLUMN_DIALOGUE, spObject.getDialogue()); // Add the Dialogue
 
-        values.put(KEY_IMAGE, spObject.getImage()); // Add the Image
+        values.put(ShakespeareEntry.COLUMN_IMAGE, spObject.getImage()); // Add the Image
 
         db.insert(TABLE_NAME, null, values); // Insert the row
 
@@ -108,11 +112,11 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
 
 
-        values.put(KEY_TITLE, titlePassed);
+        values.put(ShakespeareEntry.COLUMN_TITLE, titlePassed);
 
-        values.put(KEY_DIALOGUE, dialoguePassed); // Add the Dialogue
+        values.put(ShakespeareEntry.COLUMN_DIALOGUE, dialoguePassed); // Add the Dialogue
 
-        values.put(KEY_IMAGE, imgPassed); // Add the Image
+        values.put(ShakespeareEntry.COLUMN_IMAGE, imgPassed); // Add the Image
 
 
 
@@ -134,9 +138,9 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
         //SQL statement to retrieve a book
 
-        Cursor cursor = db.query(TABLE_NAME, new String[] { KEY_ID,
+        Cursor cursor = db.query(TABLE_NAME, new String[] { ShakespeareEntry.COLUMN_ID,
 
-                        KEY_TITLE, KEY_DIALOGUE, KEY_IMAGE }, KEY_ID + "=?",
+                        ShakespeareEntry.COLUMN_TITLE, ShakespeareEntry.COLUMN_DIALOGUE, ShakespeareEntry.COLUMN_IMAGE }, ShakespeareEntry.COLUMN_ID + "=?",
 
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
@@ -212,19 +216,19 @@ public class ShakespeareDBHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_TITLE, bookSample.getTitle());
+        values.put(ShakespeareEntry.COLUMN_TITLE, bookSample.getTitle());
 
-        values.put(KEY_DIALOGUE, bookSample.getDialogue()); // Add the Dialogue
+        values.put(ShakespeareEntry.COLUMN_DIALOGUE, bookSample.getDialogue()); // Add the Dialogue
 
-        values.put(KEY_IMAGE, bookSample.getImage()); // Add the Imagelues.put
+        values.put(ShakespeareEntry.COLUMN_IMAGE, bookSample.getImage()); // Add the Imagelues.put
 
-        return db.update(TABLE_NAME,values,KEY_ID + "=?", new String[]{String.valueOf(bookSample.getID())});
+        return db.update(TABLE_NAME,values,ShakespeareEntry.COLUMN_ID + "=?", new String[]{String.valueOf(bookSample.getID())});
     }
 
     public void deleteBook (Shakespeare bookSample) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABLE_NAME, KEY_ID + "=?",  new String[]{String.valueOf(bookSample.getID())});
+        db.delete(TABLE_NAME, ShakespeareEntry.COLUMN_ID + "=?",  new String[]{String.valueOf(bookSample.getID())});
 
         db.close();
 

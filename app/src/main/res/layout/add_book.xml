@@ -13,11 +13,9 @@
         android:id="@+id/addBook_Button"
         android:onClick="addBook"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="79dp"
         android:background="#00ffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="43dp" />
+        android:layout_below="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,35 +25,65 @@
         android:layout_gravity="center_horizontal"
         android:onClick="cancelAdd"
         android:background="#00ffffff"
-        android:layout_alignTop="@+id/addBook_Button"
-        android:layout_toEndOf="@+id/addBook_Button"
-        android:layout_marginStart="59dp" />
+        android:layout_below="@+id/editText4"
+        android:layout_toStartOf="@+id/spinner2" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/add_book_title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textColor="#ffffff"
-        android:layout_above="@+id/add_dialogue"
         android:inputType="text"
         android:visibility="visible"
-        android:hint="Add Book Title Here" />
+        android:hint="Add Book Title Here"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/add_dialogue"
-        android:layout_above="@+id/addBook_Button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:inputType="text"
-        android:hint="Add Dialogue Here" />
+        android:hint="Add Dialogue Here"
+        android:layout_below="@+id/add_book_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:hint="Published Year"
+        android:gravity="center"
+        android:layout_below="@+id/add_dialogue"
+        android:layout_alignEnd="@+id/editText4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:gravity="center"
+        android:hint="Number of Copies"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:layout_below="@+id/add_dialogue" />
 
 </RelativeLayout>
