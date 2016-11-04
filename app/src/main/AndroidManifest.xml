@@ -19,6 +19,10 @@
         <activity android:name=".FragmentLayout$DetailsActivity"/>
         <activity android:name=".addSPBook"/>
         <activity android:name=".editSPBook"/>
+        <provider
+            android:name=".ShakespeareProvider"
+            android:authorities="com.example.alpha.fragment"
+            android:exported="false" />
 
     </application>
 
